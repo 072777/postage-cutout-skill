@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <mask id="stampMask">
+      <rect width="900" height="600" fill="white"/>
+      <g fill="black">
+        <circle cx="75" cy="0" r="32"/><circle cx="150" cy="0" r="32"/>
+        <circle cx="225" cy="0" r="32"/><circle cx="300" cy="0" r="32"/>
+        <circle cx="375" cy="0" r="32"/><circle cx="450" cy="0" r="32"/>
+        <circle cx="525" cy="0" r="32"/><circle cx="600" cy="0" r="32"/>
+        <circle cx="675" cy="0" r="32"/><circle cx="750" cy="0" r="32"/>
+        <circle cx="825" cy="0" r="32"/>
+        <circle cx="75" cy="600" r="32"/><circle cx="150" cy="600" r="32"/>
+        <circle cx="225" cy="600" r="32"/><circle cx="300" cy="600" r="32"/>
+        <circle cx="375" cy="600" r="32"/><circle cx="450" cy="600" r="32"/>
+        <circle cx="525" cy="600" r="32"/><circle cx="600" cy="600" r="32"/>
+        <circle cx="675" cy="600" r="32"/><circle cx="750" cy="600" r="32"/>
+        <circle cx="825" cy="600" r="32"/>
+        <circle cx="0" cy="75" r="32"/><circle cx="0" cy="150" r="32"/>
+        <circle cx="0" cy="225" r="32"/><circle cx="0" cy="300" r="32"/>
+        <circle cx="0" cy="375" r="32"/><circle cx="0" cy="450" r="32"/>
+        <circle cx="0" cy="525" r="32"/>
+        <circle cx="900" cy="75" r="32"/><circle cx="900" cy="150" r="32"/>
+        <circle cx="900" cy="225" r="32"/><circle cx="900" cy="300" r="32"/>
+        <circle cx="900" cy="375" r="32"/><circle cx="900" cy="450" r="32"/>
+        <circle cx="900" cy="525" r="32"/>
+      </g>
+    </mask>
+  </defs>
+  <rect width="900" height="600" fill="white" mask="url(#stampMask)"/>
+</svg>
