@@ -2,9 +2,11 @@
 
 # Postage Cutout Skill
 
-Turn any photo into a clean postage-stamp cutout and editorial collage.
+**Turn any photo into a postage cutout — with one natural-language instruction.**
 
-**Exact crop · clean perforation · matching negative space**
+Upload a photo → say what you want → get an exact crop, perforated stamp edge, and matching negative space.
+
+`No manual masking` · `No stamp-border templates` · `No prompt tweaking`
 
 ![Postage Cutout Skill — Before to After](assets/readme/hero.png)
 
@@ -34,6 +36,8 @@ The default effect is:
 - no extra text, postmark, or decoration by default.
 
 > **Core rule:** the stamp above must be the exact crop removed from the original image below.
+
+The README examples in this repo were generated with the Skill itself.
 
 ---
 
@@ -151,15 +155,17 @@ Transparent background outside the stamp shape.
 
 ![Postage Cutout examples](assets/readme/gallery.png)
 
+All sample images below were generated with the Skill itself, using travel, animal, seaside, and minimalist landscape photos.
+
 Works especially well with:
 
 | Source | Why |
 |---|---|
-| Architecture | Details stay readable at small size |
+| Animals in open fields | One clear subject makes the extracted stamp instantly readable |
 | Seaside / water | Large color blocks make the stamp edge obvious |
-| Travel photography | Feels like a visual souvenir |
-| Landmarks | One iconic detail becomes a strong focal point |
-| Editorial imagery | Negative space becomes part of the composition |
+| Minimal houses / sky | Clean structure keeps the cutout neat and quiet |
+| Coastal towns / rooftops | Dense details make the stamp feel like a travel keepsake |
+| Travel photography | The negative space becomes part of the final composition |
 
 ---
 
@@ -286,11 +292,11 @@ Recommended Topics:
 ai-skill
 design-skill
 image-editing
-postage-cutout
-collage
-creative-coding
-figma
+photo-editing
 image-processing
+postage-cutout
+postage-stamp
+collage
 ```
 
 For **Social preview**, upload:
