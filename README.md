@@ -2,9 +2,9 @@
 
 # Postage Cutout Skill
 
-**Turn any photo into a postage cutout — with one natural-language instruction.**
+**Turn any photo into a postage cutout with one natural-language instruction.**
 
-Upload a photo → say what you want → get an exact crop, perforated stamp edge, and matching negative space.
+Create an exact crop, a perforated stamp edge, and a matching negative-space cutout from the same image.
 
 `No manual masking` · `No stamp-border templates` · `No prompt tweaking`
 
@@ -19,93 +19,130 @@ Upload a photo → say what you want → get an exact crop, perforated stamp edg
 
 ---
 
-## What is this?
+## What it does
 
-`Postage Cutout Skill` turns a photo into a **postage-shaped cutout**.
+`Postage Cutout Skill` turns a user-provided image into a **postage-shaped cutout composition**.
 
-It is not the classic “white border + denomination + postmark” stamp look.
+The default result includes:
 
-The default effect is:
+- an exact crop extracted from the source image;
+- clean inward semicircular perforations;
+- the extracted stamp placed above;
+- the same region removed below as a matching negative space;
+- a warm cream paper background;
+- subtle analog texture and restrained shadow;
+- no denomination, postmark, white border, or decorative clutter by default.
 
-- image fills the whole stamp shape;
-- evenly spaced inward semicircle perforations on all four edges;
-- warm cream paper background;
-- one exact crop is extracted from the source image;
-- the same region remains as a matching stamp-shaped hole below;
-- subtle analog grain and soft shadow;
-- no extra text, postmark, or decoration by default.
+> **Core rule:** the stamp above must come from the exact region removed from the image below.
 
-> **Core rule:** the stamp above must be the exact crop removed from the original image below.
-
-The README examples in this repo were generated with the Skill itself.
+All preview images in this repository were generated with the Skill itself.
 
 ---
 
-# Quick Start
+## Quick Start
 
-## 1. Add the Skill
+### 1. Add the Skill
 
-Download this repository and add / load `SKILL.md` into an AI tool or Agent that supports custom Skills or instruction files.
+Download this repository and load `SKILL.md` into an AI tool or Agent that supports custom Skills or instruction files.
 
-If your tool supports a Skills folder, place this repository there.  
-If it only supports custom instructions, use the contents of `SKILL.md` as the instruction.
+### 2. Upload an image
 
-## 2. Upload an image
+Use a photo with one clear visual anchor: a building, animal, landmark, person, object, or landscape detail.
 
-Use a photo, poster, architecture shot, landscape, UI visual, or any image with a clear focal area.
+### 3. Say what you want
 
-## 3. Say one sentence
+**First use**
 
-### First use
+> 使用 Postage Cutout Skill，把这张照片变成邮票形状。
 
-To make the intent completely explicit the first time, you can say:
+> Use the Postage Cutout Skill to turn this photo into a postage cutout.
 
-> **使用 Postage Cutout Skill，把这张照片变成邮票形状。**
+**After the Skill is loaded**
 
-> **Use the Postage Cutout Skill to turn this photo into a postage stamp shape.**
+> 把这张照片变成邮票形状。
 
-### After the Skill is loaded
+> 把图里的一个局部提取成邮票，并在原图里留下对应的镂空区域。
 
-You do **not** need to mention the Skill name every time.  
-Just use a natural instruction:
+> 把这张图做成邮票裁切拼贴效果。
 
-### 中文示例
+> Turn this photo into a postage stamp shape.
 
-> **把这张照片变成邮票形状。**
+> Extract one area as a stamp and leave the matching cutout in the original image.
 
-> **把图里的一个局部提取成邮票，并在原图里留下对应的镂空区域。**
-
-> **把这张图做成邮票裁切拼贴效果。**
-
-### English examples
-
-> **Turn this photo into a postage stamp shape.**
-
-> **Extract one area as a stamp and leave the matching cutout in the original image.**
-
-> **Turn this image into a postage cutout collage.**
+> Turn this image into a postage cutout collage.
 
 ---
 
 ## How it works
 
-![3 steps and prompt example](assets/readme/steps-and-prompt.png)
+![Postage Cutout workflow](assets/readme/steps-and-prompt.png)
 
-The Skill follows one simple visual logic:
+The logic is simple:
 
 ```text
 SOURCE IMAGE
      ↓
 SELECT ONE REGION
      ↓
-CUT IT INTO A STAMP SHAPE
+CUT THE EXACT REGION INTO A STAMP
      ↓
-MOVE THE EXACT CROP UP
+MOVE THE STAMP ABOVE
      ↓
 LEAVE THE SAME SHAPED HOLE BELOW
 ```
 
-This keeps the result visually believable and prevents the model from inventing a different scene inside the stamp.
+This is a **cut-and-move** effect, not a request to generate a similar replacement scene.
+
+---
+
+## Example Gallery
+
+![Postage Cutout examples](assets/readme/gallery.png)
+
+These are real outputs generated with the Skill.
+
+It works especially well with:
+
+| Source type | Why |
+|---|---|
+| Animals in open fields | One clear subject stays readable at small size |
+| Seaside / water | Large color fields make the perforated edge obvious |
+| Minimal houses / sky | Clean composition keeps the cutout quiet |
+| Coastal towns / rooftops | Dense detail makes the stamp feel like a travel keepsake |
+| Travel photography | The negative space becomes part of the composition |
+
+---
+
+## Modes
+
+### `poster`
+
+Default editorial composition:
+
+- 1080 × 1440
+- warm cream paper background
+- extracted stamp above
+- original image below
+- matching stamp-shaped negative space
+
+### `stamp`
+
+Standalone stamp asset:
+
+- transparent background
+- no white border
+- no text
+- no postmark
+- source image preserved
+
+### `classic-stamp`
+
+Only when explicitly requested:
+
+- outer border
+- denomination
+- country label
+- optional postmark
 
 ---
 
@@ -151,60 +188,9 @@ Transparent background outside the stamp shape.
 
 ---
 
-## Example Gallery
-
-![Postage Cutout examples](assets/readme/gallery.png)
-
-All sample images below were generated with the Skill itself, using travel, animal, seaside, and minimalist landscape photos.
-
-Works especially well with:
-
-| Source | Why |
-|---|---|
-| Animals in open fields | One clear subject makes the extracted stamp instantly readable |
-| Seaside / water | Large color blocks make the stamp edge obvious |
-| Minimal houses / sky | Clean structure keeps the cutout neat and quiet |
-| Coastal towns / rooftops | Dense details make the stamp feel like a travel keepsake |
-| Travel photography | The negative space becomes part of the final composition |
-
----
-
-## Modes
-
-### `poster`
-
-Default editorial collage:
-
-- 1080 × 1440
-- cream paper background
-- extracted stamp above
-- original image below
-- matching stamp-shaped hole
-
-### `stamp`
-
-Standalone stamp asset:
-
-- transparent background
-- no white border
-- no postmark
-- no text
-- source image preserved
-
-### `classic-stamp`
-
-Only when explicitly requested:
-
-- outer border
-- denomination
-- country label
-- optional postmark
-
----
-
 ## Deterministic Helper
 
-For maximum consistency, this repository includes a small Python helper.
+For exact crop consistency:
 
 ```bash
 pip install -r requirements.txt
@@ -257,36 +243,22 @@ postage-cutout-skill/
 - keep the crop exact;
 - use even semicircular perforations;
 - preserve the source image;
-- keep architecture, faces, people, signs, colors, and perspective unchanged;
+- preserve architecture, faces, people, signs, colors, and perspective;
 - keep paper texture subtle;
-- keep shadow light.
+- keep shadow restrained.
 
 **Don't**
 
-- regenerate a different scene inside the stamp;
+- generate a different scene inside the stamp;
 - add random torn-paper edges;
-- add a white border unless requested;
+- add a white stamp border unless requested;
 - add denomination or postmark by default;
-- change faces, objects, buildings, windows, or signage;
+- alter faces, objects, buildings, windows, or signage;
 - overdo grain, sepia, distressing, or shadow.
 
 ---
 
-## GitHub Setup
-
-Recommended repository name:
-
-```text
-postage-cutout-skill
-```
-
-Recommended description:
-
-```text
-Turn any photo into a clean postage-stamp cutout and editorial collage.
-```
-
-Recommended Topics:
+## Recommended GitHub Topics
 
 ```text
 ai-skill
@@ -299,7 +271,7 @@ postage-stamp
 collage
 ```
 
-For **Social preview**, upload:
+For GitHub **Social preview**, upload:
 
 ```text
 assets/readme/social-preview.png
@@ -309,9 +281,9 @@ assets/readme/social-preview.png
 
 ## License
 
-The Skill text, SVG mask, generated README demo artwork, and helper script are released under the **MIT License**.
+The Skill text, SVG mask, README demo artwork, and helper script are released under the **MIT License**.
 
-Do not add third-party photography to this repository unless you have permission to redistribute it.
+Do not add third-party photography unless you have permission to redistribute it.
 
 ---
 
